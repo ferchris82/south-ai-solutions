@@ -5,14 +5,14 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8">
           <div className="col-span-2">
             <div className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-4">
-              AI Agents SA
+              TopIA's
             </div>
             <p className="text-muted-foreground mb-6 max-w-md">
-              Especializados en agentes de inteligencia artificial personalizados para empresas 
-              sudamericanas. Transformamos procesos con tecnología n8n.
+              Especializados en agentes de inteligencia artificial personalizados para empresas.
+              Transformamos procesos con tecnología n8n.
             </p>
             <div className="text-sm text-muted-foreground">
-              © 2024 AI Agents SA. Todos los derechos reservados.
+              © 2025 TopIA's. Todos los derechos reservados.
             </div>
           </div>
           
@@ -22,6 +22,7 @@ const Footer = () => {
               <li><a href="#" className="hover:text-primary transition-colors">Agentes IA</a></li>
               <li><a href="#" className="hover:text-primary transition-colors">Automatización n8n</a></li>
               <li><a href="#" className="hover:text-primary transition-colors">Chatbots</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Agentes de voz</a></li>
               <li><a href="#" className="hover:text-primary transition-colors">Consultoría</a></li>
             </ul>
           </div>
@@ -38,7 +39,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>Potenciado por n8n • Especialistas en IA para Sudamérica</p>
+          <p>• Especialistas en IA para tu negocio</p>
         </div>
       </div>
     </footer>

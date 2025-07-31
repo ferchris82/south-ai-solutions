@@ -46,7 +46,7 @@ const ServicesSection = () => {
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Desarrollamos agentes IA personalizados que se adaptan perfectamente a las necesidades 
-            específicas de tu empresa en el mercado sudamericano.
+            específicas de tu empresa en cualquier mercado sudamericano.
           </p>
         </div>
         

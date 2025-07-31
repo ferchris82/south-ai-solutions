@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-ai-agency.jpg";
+import heroImage from "@/assets/wallpaper1.png";
 
 const HeroSection = () => {
   return (
@@ -17,7 +17,7 @@ const HeroSection = () => {
               </span>
               <br />
               <span className="text-muted-foreground text-3xl lg:text-4xl">
-                para Sudamérica
+                para tu negocio
               </span>
             </h1>
             
