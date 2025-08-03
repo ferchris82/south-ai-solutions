@@ -2,9 +2,61 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Loader2 } from "lucide-react";
+import { useState } from "react";
+import { toast } from "sonner";
 
 const ContactSection = () => {
+  const [formData, setFormData] = useState({
+    nombre: '',
+    empresa: '',
+    email: '',
+    telefono: '',
+    proyecto: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleInputChange = (field, value) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!formData.nombre || !formData.email || !formData.proyecto) {
+      toast.error('Por favor completa los campos requeridos');
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    try {
+      // Enviar directamente a tu webhook de n8n
+      const response = await fetch('https://n8n.srv940471.hstgr.cloud/webhook/74e41df6-92fd-44f7-bd79-71404a8c9be4', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          fecha: new Date().toISOString(),
+          fuente: 'Website'
+        })
+      });
+      
+      if (response.ok) {
+        toast.success('¡Mensaje enviado! Te contactaremos pronto.');
+        setFormData({ nombre: '', empresa: '', email: '', telefono: '', proyecto: '' });
+      } else {
+        throw new Error('Error al enviar');
+      }
+    } catch (error) {
+      toast.error('Error al enviar el mensaje. Intenta nuevamente.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="contacto" className="py-20">
       <div className="container mx-auto px-6">
@@ -25,49 +77,87 @@ const ContactSection = () => {
             <CardHeader>
               <CardTitle className="text-2xl">Envíanos un Mensaje</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-4">
+            <CardContent>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-sm font-medium text-foreground mb-2 block">
+                      Nombre *
+                    </label>
+                    <Input 
+                      placeholder="Tu nombre" 
+                      value={formData.nombre}
+                      onChange={(e) => handleInputChange('nombre', e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium text-foreground mb-2 block">
+                      Empresa
+                    </label>
+                    <Input 
+                      placeholder="Nombre de tu empresa" 
+                      value={formData.empresa}
+                      onChange={(e) => handleInputChange('empresa', e.target.value)}
+                    />
+                  </div>
+                </div>
+                
                 <div>
                   <label className="text-sm font-medium text-foreground mb-2 block">
-                    Nombre
+                    Email *
                   </label>
-                  <Input placeholder="Tu nombre" />
+                  <Input 
+                    type="email" 
+                    placeholder="tu@email.com" 
+                    value={formData.email}
+                    onChange={(e) => handleInputChange('email', e.target.value)}
+                    required
+                  />
                 </div>
+                
                 <div>
                   <label className="text-sm font-medium text-foreground mb-2 block">
-                    Empresa
+                    Teléfono
                   </label>
-                  <Input placeholder="Nombre de tu empresa" />
+                  <Input 
+                    type="tel" 
+                    placeholder="+54 11 1234-5678" 
+                    value={formData.telefono}
+                    onChange={(e) => handleInputChange('telefono', e.target.value)}
+                  />
                 </div>
-              </div>
-              
-              <div>
-                <label className="text-sm font-medium text-foreground mb-2 block">
-                  Email
-                </label>
-                <Input type="email" placeholder="tu@email.com" />
-              </div>
-              
-              <div>
-                <label className="text-sm font-medium text-foreground mb-2 block">
-                  Teléfono
-                </label>
-                <Input type="tel" placeholder="+54 11 1234-5678" />
-              </div>
-              
-              <div>
-                <label className="text-sm font-medium text-foreground mb-2 block">
-                  Cuéntanos sobre tu proyecto
-                </label>
-                <Textarea 
-                  placeholder="Describe qué procesos te gustaría automatizar y cómo podemos ayudarte..."
-                  rows={4}
-                />
-              </div>
-              
-              <Button variant="hero" size="lg" className="w-full text-lg py-6">
-                Solicitar Consulta Gratuita
-              </Button>
+                
+                <div>
+                  <label className="text-sm font-medium text-foreground mb-2 block">
+                    Cuéntanos sobre tu proyecto *
+                  </label>
+                  <Textarea 
+                    placeholder="Describe qué procesos te gustaría automatizar y cómo podemos ayudarte..."
+                    rows={4}
+                    value={formData.proyecto}
+                    onChange={(e) => handleInputChange('proyecto', e.target.value)}
+                    required
+                  />
+                </div>
+                
+                <Button 
+                  type="submit"
+                  variant="hero" 
+                  size="lg" 
+                  className="w-full text-lg py-6"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Enviando...
+                    </>
+                  ) : (
+                    'Solicitar Consulta Gratuita'
+                  )}
+                </Button>
+              </form>
             </CardContent>
           </Card>
           

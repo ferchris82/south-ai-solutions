@@ -1,7 +1,25 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Bot, Workflow, MessageSquare, BarChart3, Zap, Shield } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 
 const ServicesSection = () => {
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  
+  const dynamicTexts = [
+    "Desarrollamos agentes IA personalizados que se adaptan perfectamente a las necesidades específicas de tu empresa en cualquier sector del mercado.",
+    "Creamos soluciones inteligentes que automatizan procesos y optimizan la productividad de tu negocio.",
+    "Implementamos tecnología de vanguardia que transforma la manera en que tu empresa interactúa con clientes y datos.",
+    "Diseñamos agentes conversacionales que mejoran la experiencia del usuario y reducen costos operativos."
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTextIndex((prev) => (prev + 1) % dynamicTexts.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
   const services = [
     {
       icon: <Bot className="h-12 w-12 text-primary" />,
@@ -44,27 +62,45 @@ const ServicesSection = () => {
               Nuestros Servicios
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Desarrollamos agentes IA personalizados que se adaptan perfectamente a las necesidades 
-            específicas de tu empresa en cualquier mercado sudamericano.
-          </p>
+          <div className="text-xl text-muted-foreground max-w-3xl mx-auto min-h-[4rem] flex items-center justify-center">
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={currentTextIndex}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+                className="text-center"
+              >
+                {dynamicTexts[currentTextIndex]}
+              </motion.p>
+            </AnimatePresence>
+          </div>
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="bg-card hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-border/50">
-              <CardHeader className="text-center pb-4">
-                <div className="flex justify-center mb-4">
-                  {service.icon}
-                </div>
-                <CardTitle className="text-xl">{service.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-center text-base leading-relaxed">
-                  {service.description}
-                </CardDescription>
-              </CardContent>
-            </Card>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 2, delay: index * 0.15, type: "spring" }}
+            >
+              <Card className="bg-card hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-border/50">
+                <CardHeader className="text-center pb-4">
+                  <div className="flex justify-center mb-4">
+                    {service.icon}
+                  </div>
+                  <CardTitle className="text-xl">{service.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-center text-base leading-relaxed">
+                    {service.description}
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </div>
