@@ -5,11 +5,16 @@ import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
-    <section id="inicio" className="min-h-screen flex items-center pt-20">
-      <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
-            <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
+    <section id="inicio" className="min-h-screen flex items-center pt-16 sm:pt-20">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="space-y-6 sm:space-y-8"
+          >
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 <Typewriter
                   words={['Agentes IA']}
@@ -30,7 +35,7 @@ const HeroSection = () => {
                 />
               </span>
               <br />
-              <span className="text-muted-foreground text-3xl lg:text-4xl">
+              <span className="text-muted-foreground text-xl sm:text-2xl md:text-3xl lg:text-4xl">
                 <Typewriter
                   words={['Para tu negocio']}
                   typeSpeed={80}
@@ -40,7 +45,12 @@ const HeroSection = () => {
               </span>
             </h1>
 
-            <p className="text-xl text-muted-foreground max-w-lg">
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-lg break-words"
+            >
               <Typewriter
                 words={[
                   "Transformamos tu negocio con agentes automatizados inteligentes usando tecnología n8n. Soluciones a medida que optimizan procesos y aumentan la productividad."
@@ -51,50 +61,69 @@ const HeroSection = () => {
                 deleteSpeed={30}
                 delaySpeed={1000}
               />
-            </p>
+            </motion.p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="hero" size="lg" className="text-lg px-8 py-6">
-                Comenzar Ahora
-              </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-6">
-                Ver Casos de Éxito
-              </Button>
-            </div>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
+              <a href="#contacto" className="block w-full sm:w-auto">
+                <Button variant="hero" size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 w-full sm:w-auto">
+                  Comenzar Ahora
+                </Button>
+              </a>
+              <a href="#casos-exito" className="block w-full sm:w-auto">
+                <Button variant="outline" size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 w-full sm:w-auto">
+                  Ver Casos de Éxito
+                </Button>
+              </a>
+            </motion.div>
 
-            <div className="flex items-center gap-8 pt-8">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="flex items-center justify-center sm:justify-start gap-4 sm:gap-8 pt-6 sm:pt-8"
+            >
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary">100+</div>
-                <div className="text-sm text-muted-foreground">
+                <div className="text-2xl sm:text-3xl font-bold text-primary">100+</div>
+                <div className="text-xs sm:text-sm text-muted-foreground">
                   Agentes Creados
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-accent">95%</div>
-                <div className="text-sm text-muted-foreground">
+                <div className="text-2xl sm:text-3xl font-bold text-accent">95%</div>
+                <div className="text-xs sm:text-sm text-muted-foreground">
                   Satisfacción Cliente
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary">50+</div>
-                <div className="text-sm text-muted-foreground">
+                <div className="text-2xl sm:text-3xl font-bold text-primary">50+</div>
+                <div className="text-xs sm:text-sm text-muted-foreground">
                   Empresas Atendidas
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-3xl"></div>
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="relative order-first lg:order-last"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-2xl sm:rounded-3xl blur-2xl sm:blur-3xl"></div>
             <video
               src={robotsVideo}
               autoPlay
               loop
               muted
               playsInline
-              className="relative z-10 rounded-3xl shadow-2xl w-full h-full object-cover"
+              className="relative z-10 rounded-2xl sm:rounded-3xl shadow-xl sm:shadow-2xl w-full h-auto max-h-[300px] sm:max-h-[400px] lg:max-h-none object-cover"
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

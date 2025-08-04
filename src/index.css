@@ -124,3 +124,29 @@ All colors MUST be HSL.
 .animate-marquee-reverse {
   animation: marquee 50s linear infinite reverse;
 }
+
+/* Responsive text improvements for mobile */
+@media (max-width: 640px) {
+  .break-words {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  /* Ensure text containers don't overflow */
+  .max-w-full {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  /* Improve button responsiveness */
+  .w-full {
+    width: 100% !important;
+  }
+  
+  /* Ensure proper text wrapping */
+  p, h1, h2, h3, h4, h5, h6 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}
