@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agents SA - Favicon Generator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .favicon-preview {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .instructions {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .download-btn {
+            background: #3B82F6;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+        .download-btn:hover {
+            background: #1E40AF;
+        }
+        .size-options {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .size-option {
+            text-align: center;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .size-option:hover {
+            border-color: #3B82F6;
+            background: #f0f8ff;
+        }
+        .size-option.selected {
+            border-color: #3B82F6;
+            background: #e3f2fd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 AI Agents SA - Generador de Favicon</h1>
+        
+        <div class="instructions">
+            <h3>📋 Instrucciones:</h3>
+            <ol>
+                <li>Selecciona el tamaño del favicon que deseas generar</li>
+                <li>Haz clic en "Descargar PNG" para guardar la imagen</li>
+                <li>Usa un convertidor online para convertir PNG a ICO</li>
+                <li>Reemplaza el archivo <code>public/favicon.ico</code> con el nuevo</li>
+            </ol>
+        </div>
+
+        <div class="size-options">
+            <div class="size-option" onclick="selectSize(16)">
+                <h4>16x16</h4>
+                <p>Favicon estándar</p>
+            </div>
+            <div class="size-option" onclick="selectSize(32)">
+                <h4>32x32</h4>
+                <p>Favicon HD</p>
+            </div>
+            <div class="size-option selected" onclick="selectSize(48)">
+                <h4>48x48</h4>
+                <p>Favicon recomendado</p>
+            </div>
+            <div class="size-option" onclick="selectSize(64)">
+                <h4>64x64</h4>
+                <p>Favicon grande</p>
+            </div>
+        </div>
+
+        <div class="favicon-preview">
+            <h3>Vista Previa del Favicon</h3>
+            <div id="favicon-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" id="favicon-svg">
+                    <defs>
+                        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#1E40AF;stop-opacity:1" />
+                        </linearGradient>
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                            <feMerge> 
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    
+                    <!-- Background circle with glow -->
+                    <circle cx="128" cy="128" r="120" fill="url(#bgGradient)" stroke="#1E40AF" stroke-width="4" filter="url(#glow)"/>
+                    
+                    <!-- Robot head -->
+                    <rect x="64" y="80" width="128" height="96" rx="8" fill="#FFFFFF" stroke="#1E40AF" stroke-width="3"/>
+                    
+                    <!-- Eyes -->
+                    <circle cx="88" cy="112" r="12" fill="#3B82F6"/>
+                    <circle cx="168" cy="112" r="12" fill="#3B82F6"/>
+                    
+                    <!-- Eye highlights -->
+                    <circle cx="92" cy="108" r="4" fill="#FFFFFF"/>
+                    <circle cx="172" cy="108" r="4" fill="#FFFFFF"/>
+                    
+                    <!-- Mouth -->
+                    <rect x="96" y="144" width="64" height="16" rx="8" fill="#3B82F6"/>
+                    
+                    <!-- Antenna -->
+                    <line x1="128" y1="80" x2="128" y2="48" stroke="#1E40AF" stroke-width="6" stroke-linecap="round"/>
+                    <circle cx="128" cy="48" r="8" fill="#3B82F6"/>
+                    
+                    <!-- AI text -->
+                    <text x="128" y="224" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#FFFFFF">AI</text>
+                    
+                    <!-- Decorative elements -->
+                    <circle cx="48" cy="48" r="16" fill="#3B82F6" opacity="0.3"/>
+                    <circle cx="208" cy="208" r="20" fill="#3B82F6" opacity="0.3"/>
+                </svg>
+            </div>
+            <p><strong>Tamaño seleccionado: <span id="selected-size">48</span>x<span id="selected-size">48</span></strong></p>
+        </div>
+
+        <div style="text-align: center;">
+            <button class="download-btn" onclick="downloadPNG()">📥 Descargar PNG</button>
+            <button class="download-btn" onclick="downloadSVG()">📥 Descargar SVG</button>
+        </div>
+
+        <div class="instructions">
+            <h3>🔗 Convertidores Online Recomendados:</h3>
+            <ul>
+                <li><a href="https://convertio.co/png-ico/" target="_blank">Convertio.co</a> - Convierte PNG a ICO</li>
+                <li><a href="https://www.icoconverter.com/" target="_blank">ICO Converter</a> - Herramienta especializada</li>
+                <li><a href="https://favicon.io/favicon-converter/" target="_blank">Favicon.io</a> - Generador completo</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        let selectedSize = 48;
+
+        function selectSize(size) {
+            selectedSize = size;
+            document.getElementById('selected-size').textContent = size;
+            
+            // Update visual selection
+            document.querySelectorAll('.size-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            event.target.closest('.size-option').classList.add('selected');
+            
+            // Update SVG size
+            const svg = document.getElementById('favicon-svg');
+            svg.setAttribute('width', size);
+            svg.setAttribute('height', size);
+        }
+
+        function downloadPNG() {
+            const svg = document.getElementById('favicon-svg');
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = selectedSize;
+            canvas.height = selectedSize;
+            
+            const svgData = new XMLSerializer().serializeToString(svg);
+            const img = new Image();
+            
+            img.onload = function() {
+                ctx.drawImage(img, 0, 0, selectedSize, selectedSize);
+                
+                const link = document.createElement('a');
+                link.download = `ai-agents-favicon-${selectedSize}x${selectedSize}.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            };
+            
+            img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgData)));
+        }
+
+        function downloadSVG() {
+            const svg = document.getElementById('favicon-svg');
+            const svgData = new XMLSerializer().serializeToString(svg);
+            const blob = new Blob([svgData], {type: 'image/svg+xml'});
+            const url = URL.createObjectURL(blob);
+            
+            const link = document.createElement('a');
+            link.download = 'ai-agents-favicon.svg';
+            link.href = url;
+            link.click();
+            
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>

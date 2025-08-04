@@ -71,6 +71,14 @@ const Footer = () => {
               <li><a href="#" className="hover:text-primary transition-colors text-xs sm:text-sm break-words">Blog</a></li>
             </ul>
           </div>
+          
+          <div>
+            <h4 className="font-semibold mb-4 text-sm sm:text-base break-words">Legal</h4>
+            <ul className="space-y-2 text-muted-foreground">
+              <li><a href="/terminos-y-condiciones" className="hover:text-primary transition-colors text-xs sm:text-sm break-words">Términos y Condiciones</a></li>
+              <li><a href="/politica-privacidad" className="hover:text-primary transition-colors text-xs sm:text-sm break-words">Política de Privacidad</a></li>
+            </ul>
+          </div>
         </div>
         
         <div className="border-t mt-8 pt-8 text-center text-xs sm:text-sm text-muted-foreground">

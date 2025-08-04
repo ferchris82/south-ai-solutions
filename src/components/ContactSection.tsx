@@ -70,7 +70,7 @@ const ContactSection = () => {
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Comienza Tu Transformación
+              Transforma tu Negocio con IA
             </span>
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4 break-words">

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E40AF;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background circle with glow -->
+  <circle cx="128" cy="128" r="120" fill="url(#bgGradient)" stroke="#1E40AF" stroke-width="4" filter="url(#glow)"/>
+  
+  <!-- Robot head -->
+  <rect x="64" y="80" width="128" height="96" rx="8" fill="#FFFFFF" stroke="#1E40AF" stroke-width="3"/>
+  
+  <!-- Eyes -->
+  <circle cx="88" cy="112" r="12" fill="#3B82F6"/>
+  <circle cx="168" cy="112" r="12" fill="#3B82F6"/>
+  
+  <!-- Eye highlights -->
+  <circle cx="92" cy="108" r="4" fill="#FFFFFF"/>
+  <circle cx="172" cy="108" r="4" fill="#FFFFFF"/>
+  
+  <!-- Mouth -->
+  <rect x="96" y="144" width="64" height="16" rx="8" fill="#3B82F6"/>
+  
+  <!-- Antenna -->
+  <line x1="128" y1="80" x2="128" y2="48" stroke="#1E40AF" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="128" cy="48" r="8" fill="#3B82F6"/>
+  
+  <!-- AI text -->
+  <text x="128" y="224" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#FFFFFF">AI</text>
+  
+  <!-- Decorative elements -->
+  <circle cx="48" cy="48" r="16" fill="#3B82F6" opacity="0.3"/>
+  <circle cx="208" cy="208" r="20" fill="#3B82F6" opacity="0.3"/>
+</svg> 

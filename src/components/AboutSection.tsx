@@ -230,12 +230,6 @@ const AboutSection = () => {
               viewport={{ once: true }}
               className="absolute -bottom-2 sm:-bottom-3 md:-bottom-6 right-0 sm:right-2 md:right-4 bg-card border border-border rounded-lg sm:rounded-xl md:rounded-2xl p-2 sm:p-3 md:p-6 shadow-lg max-w-fit"
             >
-              <div className="text-center">
-                <div className="text-sm sm:text-lg md:text-2xl font-bold text-primary mb-1">n8n</div>
-                <div className="text-xs sm:text-sm text-muted-foreground">
-                  Plataforma Principal
-                </div>
-              </div>
             </motion.div>
           </motion.div>
         </div>

@@ -79,7 +79,7 @@ const CasosExitoSection = () => {
             </span>
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4 break-words">
-            Descubre cómo hemos transformado empresas sudamericanas con automatización inteligente usando n8n.
+            Descubre cómo se puede optimizar las funciones de las empresas con automatización inteligente usando n8n.
             Cada proyecto es único y diseñado específicamente para las necesidades de tu negocio.
           </p>
         </motion.div>
@@ -145,7 +145,7 @@ const CasosExitoSection = () => {
               ¿Quieres un caso de éxito similar para tu empresa?
             </h3>
             <p className="text-sm sm:text-base text-muted-foreground mb-6 max-w-2xl mx-auto px-4 break-words">
-              Nuestros expertos analizarán tu negocio y crearán una solución personalizada 
+              Un profesional en desarrollo analizarán tu negocio y creará una solución personalizada 
               que se adapte perfectamente a tus necesidades específicas.
             </p>
             <div className="flex justify-center">

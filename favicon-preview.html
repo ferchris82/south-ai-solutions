@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Favicon Preview</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .preview { margin: 20px 0; }
+        .instructions { background: #f0f0f0; padding: 15px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>🤖 AI Agents SA - Favicon Preview</h1>
+    
+    <div class="preview">
+        <h3>Favicon Actual (SVG):</h3>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E40AF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="16" cy="16" r="15" fill="url(#grad1)" stroke="#1E40AF" stroke-width="1"/>
+  
+  <!-- Robot head -->
+  <rect x="8" y="10" width="16" height="12" rx="2" fill="#FFFFFF" stroke="#1E40AF" stroke-width="1"/>
+  
+  <!-- Eyes -->
+  <circle cx="11" cy="14" r="1.5" fill="#3B82F6"/>
+  <circle cx="21" cy="14" r="1.5" fill="#3B82F6"/>
+  
+  <!-- Mouth -->
+  <rect x="12" y="18" width="8" height="2" rx="1" fill="#3B82F6"/>
+  
+  <!-- Antenna -->
+  <line x1="16" y1="10" x2="16" y2="6" stroke="#1E40AF" stroke-width="2"/>
+  <circle cx="16" cy="6" r="1" fill="#3B82F6"/>
+  
+  <!-- AI text -->
+  <text x="16" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="#FFFFFF">AI</text>
+</svg> 
+    </div>
+    
+    <div class="instructions">
+        <h3>📋 Pasos para crear el favicon.ico:</h3>
+        <ol>
+            <li>Abre <a href="favicon-generator.html" target="_blank">favicon-generator.html</a> en tu navegador</li>
+            <li>Selecciona el tamaño 32x32 o 48x48</li>
+            <li>Haz clic en "Descargar PNG"</li>
+            <li>Ve a <a href="https://convertio.co/png-ico/" target="_blank">convertio.co/png-ico/</a></li>
+            <li>Sube el PNG descargado y convierte a ICO</li>
+            <li>Descarga el archivo .ico</li>
+            <li>Reemplaza <code>public/favicon.ico</code> con el nuevo archivo</li>
+        </ol>
+    </div>
+    
+    <div class="instructions">
+        <h3>🎯 Alternativa Rápida:</h3>
+        <p>También puedes usar directamente el favicon.svg que ya tienes, ya que los navegadores modernos lo soportan perfectamente.</p>
+        <p>El archivo <code>public/favicon.svg</code> ya está configurado en tu <code>index.html</code>.</p>
+    </div>
+</body>
+</html>

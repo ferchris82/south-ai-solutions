@@ -39,11 +39,11 @@ const TestimonialsSection = () => {
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Lo Que Dicen Nuestros Clientes
+              ¿Qué dicen las personas que han utilizado los agentes de IA?
             </span>
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto px-4 break-words">
-            Testimonios reales de empresas que han transformado sus operaciones con nuestros agentes IA.
+            Testimonios reales de empresas que han transformado sus operaciones con los agentes IA.
           </p>
         </motion.div>
         

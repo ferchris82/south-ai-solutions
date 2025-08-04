@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E293B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0F172A;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E40AF;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="100" cy="100" r="50" fill="url(#logoGradient)" opacity="0.1"/>
+  <circle cx="1100" cy="530" r="80" fill="url(#logoGradient)" opacity="0.1"/>
+  <circle cx="200" cy="500" r="30" fill="url(#logoGradient)" opacity="0.15"/>
+  
+  <!-- Main logo -->
+  <g transform="translate(600, 315) scale(8)">
+    <!-- Background circle -->
+    <circle cx="0" cy="0" r="15" fill="url(#logoGradient)" stroke="#1E40AF" stroke-width="1" filter="url(#glow)"/>
+    
+    <!-- Robot head -->
+    <rect x="-8" y="-6" width="16" height="12" rx="2" fill="#FFFFFF" stroke="#1E40AF" stroke-width="1"/>
+    
+    <!-- Eyes -->
+    <circle cx="-5" cy="-2" r="1.5" fill="#3B82F6"/>
+    <circle cx="5" cy="-2" r="1.5" fill="#3B82F6"/>
+    
+    <!-- Mouth -->
+    <rect x="-4" y="2" width="8" height="2" rx="1" fill="#3B82F6"/>
+    
+    <!-- Antenna -->
+    <line x1="0" y1="-6" x2="0" y2="-10" stroke="#1E40AF" stroke-width="2"/>
+    <circle cx="0" cy="-10" r="1" fill="#3B82F6"/>
+  </g>
+  
+  <!-- Main title -->
+  <text x="600" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="#FFFFFF">
+    AI Agents SA
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="normal" fill="#94A3B8">
+    Agentes IA Personalizados para tu negocio
+  </text>
+  
+  <!-- Description -->
+  <text x="600" y="480" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="normal" fill="#64748B">
+    Especialistas en automatización inteligente con n8n
+  </text>
+  
+  <!-- Bottom accent -->
+  <rect x="400" y="520" width="400" height="4" fill="url(#logoGradient)" rx="2"/>
+</svg> 
